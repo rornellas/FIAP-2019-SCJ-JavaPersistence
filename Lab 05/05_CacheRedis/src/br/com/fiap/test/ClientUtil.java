@@ -69,7 +69,7 @@ public class ClientUtil {
 	public static void main(String args[]) {
 		ClientUtil util = new ClientUtil();
 
-		Produto objProduto = new Produto(1, "Banana");
+		Produto objProduto = new Produto(1, "Banana", 1);
 		util.addProdutoDemo(objProduto);
 
 		//objProduto.nome = "Laranja";

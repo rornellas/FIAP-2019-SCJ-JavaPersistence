@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -37,6 +38,11 @@ public class ProdutoController {
 	@GetMapping("produtos")
 	public ResponseEntity<List<Produto>> getAllProdutos() {
 		List<Produto> lista = produtoService.getAllProdutos();
+		return new ResponseEntity<List<Produto>>(lista, HttpStatus.OK);
+	}
+	@GetMapping("produtos/by-tipo")
+	public ResponseEntity<List<Produto>> getProdutosByTipo(@RequestParam Integer tipo) {
+		List<Produto> lista = produtoService.getProdutosByTipo(tipo);
 		return new ResponseEntity<List<Produto>>(lista, HttpStatus.OK);
 	}
 	@PostMapping("produto")

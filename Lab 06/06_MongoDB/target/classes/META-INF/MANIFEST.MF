@@ -1,3 +1,10 @@
 Manifest-Version: 1.0
-Class-Path: 
+Implementation-Title: 06_MongoDB
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: logonrmlocal
+Implementation-Vendor-Id: 06_MongoDB
+Build-Jdk: 1.8.0_212
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/06_MongoDB
+Created-By: Maven Integration for Eclipse
 

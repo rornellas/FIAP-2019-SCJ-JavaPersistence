@@ -16,11 +16,13 @@ public class Produto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long id;
 	public String nome;
+	public int tipo;
 	
-	public Produto(long id, String nome) {
+	public Produto(long id, String nome, int tipo) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.tipo = tipo;
 	}
 
 	public Produto() {

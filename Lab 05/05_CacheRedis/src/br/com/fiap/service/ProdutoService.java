@@ -35,7 +35,7 @@ public class ProdutoService implements IProdutoService {
 	@Override	
 	@Caching(
 		put= { @CachePut(value= "produtoCache", key= "#produto.id") },
-		evict= { @CacheEvict(value= "allProdutosCache", allEntries= true) }
+		evict= { @CacheEvict(value= "allProdutosCache", allEntries= true), @CacheEvict(value= "produtosByTipoCache", allEntries= true) }
 	)
 	public Produto addProduto(Produto produto){
 		System.out.println("addProduto()");		
@@ -60,5 +60,10 @@ public class ProdutoService implements IProdutoService {
 	public void deleteProduto(long id) {
 		System.out.println("deleteProduto()");		
 		produtoRepository.delete(produtoRepository.findById(id).get());
+	}
+	@Override
+	@Cacheable(value= "produtosByTipoCache", key= "#tipo", unless= "#result.size() == 0")	
+	public List<Produto> getProdutosByTipo(Integer tipo) {
+		return produtoRepository.findByTipo(tipo);
 	}
 } 
